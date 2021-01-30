@@ -11,6 +11,7 @@
     "prisma:update": "npx prisma generate"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.3",
     "@prisma/client": "^2.15.0",
     "next": "10.0.6",
     "react": "17.0.1",
