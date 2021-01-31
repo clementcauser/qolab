@@ -1,4 +1,5 @@
 import { CssBaseline, ThemeProvider } from "@material-ui/core";
+import { Provider as AuthProvider } from "next-auth/client";
 import { AppProps } from "next/app";
 import Head from "next/head";
 import { useEffect } from "react";
@@ -7,6 +8,8 @@ import "../styles/globals.css";
 import theme from "../styles/theme";
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const { session } = pageProps;
+
   useEffect(() => {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector("#jss-server-side");
@@ -17,9 +20,10 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <ThemeProvider theme={theme}>
-      {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-      <CssBaseline />
-      <Component {...pageProps} />
+      <AuthProvider session={session}>
+        <CssBaseline />
+        <Component {...pageProps} />
+      </AuthProvider>
     </ThemeProvider>
   );
 }
