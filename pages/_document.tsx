@@ -1,11 +1,18 @@
 import React from "react";
-import Document, { Html, Main, NextScript } from "next/document";
+import Document, { Head, Html, Main, NextScript } from "next/document";
 import { ServerStyleSheets } from "@material-ui/core/styles";
 
 export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="fr">
+        <Head>
+          <title>My page</title>
+          <meta
+            name="viewport"
+            content="minimum-scale=1, initial-scale=1, width=device-width"
+          />
+        </Head>
         <body>
           <Main />
           <NextScript />

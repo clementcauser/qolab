@@ -9,3 +9,25 @@ datasource db {
 generator client {
   provider = "prisma-client-js"
 }
+
+model Idea {
+  id          String  @id @default(uuid())
+  title       String
+  description String
+  published   Boolean @default(true)
+  author      User?   @relation(fields: [authorId], references: [id])
+  authorId    String?
+
+  @@map(name: "ideas")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  username  String
+  email     String
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  updatedAt DateTime @updatedAt @map(name: "updated_at")
+  Idea      Idea[]
+
+  @@map(name: "users")
+}
