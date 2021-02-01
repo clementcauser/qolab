@@ -7,10 +7,9 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { AccountCircle } from "@material-ui/icons";
 import MenuIcon from "@material-ui/icons/Menu";
-import { useSession, signOut } from "next-auth/client";
-import { useRouter } from "next/dist/client/router";
+import { signOut, useSession } from "next-auth/client";
 import Link from "next/link";
-import { MouseEvent, useCallback, useMemo, useState } from "react";
+import { MouseEvent, useMemo, useState } from "react";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -23,13 +22,28 @@ const useStyles = makeStyles((theme: Theme) =>
     title: {
       flexGrow: 1,
     },
+    appBar: {
+      backgroundColor: "#FFFFFF",
+    },
   })
 );
 
-export default function ButtonAppBar() {
+type Props = {
+  title: string;
+};
+
+const Header = ({ title }: Props) => {
   const classes = useStyles();
   const [session, loading] = useSession();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+
+  const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   const accountMenu = useMemo(
     () => (
@@ -55,28 +69,21 @@ export default function ButtonAppBar() {
     [anchorEl, signOut]
   );
 
-  const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" className={classes.appBar}>
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-          >
+          <IconButton edge="start" className={classes.menuButton}>
             <MenuIcon />
             <Typography variant="srOnly">ouvrir le menu</Typography>
           </IconButton>
-          <Typography variant="h6" component="h1" className={classes.title}>
-            qolab
+          <Typography
+            variant="h5"
+            component="h1"
+            color="primary"
+            className={classes.title}
+          >
+            {title}
           </Typography>
           {session ? (
             <IconButton
@@ -91,7 +98,7 @@ export default function ButtonAppBar() {
             </IconButton>
           ) : (
             <Link href="/api/auth/signin" passHref>
-              <Button component="a" color="inherit">
+              <Button component="a" color="secondary">
                 Se connecter
               </Button>
             </Link>
@@ -101,4 +108,6 @@ export default function ButtonAppBar() {
       {accountMenu}
     </div>
   );
-}
+};
+
+export default Header;

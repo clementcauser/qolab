@@ -10,7 +10,7 @@ type Props = {
 const Home = ({ ideas }: Props) => {
   return (
     <>
-      <Header />
+      <Header title="Accueil" />
       <Container>
         {ideas.map((idea) => (
           <Card key={idea.id}>
