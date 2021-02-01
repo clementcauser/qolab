@@ -5,13 +5,14 @@ import { deepPurple, pink } from "@material-ui/core/colors";
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: deepPurple.A200,
+      main: "#7224D8",
+      light: "#a857ff",
+      dark: "#3700a5",
     },
     secondary: {
-      main: pink.A400,
-    },
-    error: {
-      main: red.A400,
+      main: "#F5223B",
+      dark: "#ba0014",
+      light: "#ff6366",
     },
   },
   shape: {

@@ -12,13 +12,16 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
     "@prisma/client": "^2.15.0",
     "next": "10.0.6",
+    "next-auth": "^3.2.0-canary.43",
     "react": "17.0.1",
     "react-dom": "17.0.1"
   },
   "devDependencies": {
     "@prisma/cli": "^2.15.0",
+    "@types/next-auth": "^3.1.23",
     "@types/node": "^14.14.22",
     "@types/react": "^17.0.0",
     "typescript": "^4.1.3"
