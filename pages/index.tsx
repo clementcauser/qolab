@@ -1,32 +1,37 @@
-import { Card, Container, Typography } from "@material-ui/core";
-import { GetServerSideProps } from "next";
-import Header from "../components/Header";
-import prisma from "../lib/prisma";
+import { Card, Container, Grid, Typography } from "@material-ui/core"
+import { GetServerSideProps } from "next"
+import Header from "../components/Header"
+import { IIdea } from "../interfaces/ideas/idea"
+import prisma from "../lib/prisma"
 
 type Props = {
-  ideas: any[];
-};
+    ideas: IIdea[]
+}
 
 const Home = ({ ideas }: Props) => {
-  return (
-    <>
-      <Header title="Accueil" />
-      <Container>
-        {ideas.map((idea) => (
-          <Card key={idea.id}>
-            <Typography variant="h4">{idea.title}</Typography>
-            <Typography>{idea.description}</Typography>
-          </Card>
-        ))}
-      </Container>
-    </>
-  );
-};
+    return (
+        <>
+            <Header title="Accueil" />
+            <Container>
+                <Grid container>
+                    {ideas.map((idea) => (
+                        <Grid item key={idea.id} sm={4}>
+                            <Card>
+                                <Typography variant="h4">{idea.title}</Typography>
+                                <Typography>{idea.description}</Typography>
+                            </Card>
+                        </Grid>
+                    ))}
+                </Grid>
+            </Container>
+        </>
+    )
+}
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const ideas = await prisma.idea.findMany();
+    const ideas = await prisma.idea.findMany()
 
-  return { props: { ideas } };
-};
+    return { props: { ideas } }
+}
 
-export default Home;
+export default Home
