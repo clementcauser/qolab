@@ -9,8 +9,6 @@ type Props = {
 }
 
 const Home = ({ ideas }: Props) => {
-    console.log(ideas)
-
     return (
         <>
             <Header title="Accueil" />

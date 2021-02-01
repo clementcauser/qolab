@@ -10,7 +10,7 @@
     "db:studio:local": "npx prisma studio",
     "prisma:update": "npx prisma generate",
     "type-check": "tsc --project tsconfig.json --pretty --noEmit",
-    "lint": "eslint --ext js,jsx,ts,tsx --fix"
+    "lint": "eslint --ext js,jsx,ts,tsx --fix ."
   },
   "dependencies": {
     "@material-ui/core": "^4.11.3",
