@@ -10,20 +10,37 @@ generator client {
   provider = "prisma-client-js"
 }
 
+model Tag {
+  id        Int      @id @default(autoincrement())
+  publicId  String?  @default(uuid())
+  name      String
+  idea      Idea?    @relation(fields: [ideaId], references: [id])
+  ideaId    Int?
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  updatedAt DateTime @updatedAt @map(name: "updated_at")
+
+  @@map(name: "tags")
+}
+
 model Idea {
-  id          Int     @id @default(autoincrement())
-  title       String
-  description String
-  published   Boolean @default(true)
-  author      User?   @relation(fields: [authorId], references: [id])
-  authorId    Int?
-  publicId    String? @default(uuid())
+  id               Int      @id @default(autoincrement())
+  publicId         String?  @default(uuid())
+  title            String
+  shortDescription String?
+  description      String
+  likes            Int      @default(0)
+  author           User?    @relation(fields: [authorId], references: [id])
+  authorId         Int?
+  tags             Tag[]
+  createdAt        DateTime @default(now()) @map(name: "created_at")
+  updatedAt        DateTime @updatedAt @map(name: "updated_at")
 
   @@map(name: "ideas")
 }
 
 model User {
   id            Int       @id @default(autoincrement())
+  publicId      String?   @default(uuid())
   name          String?
   email         String?   @unique
   emailVerified DateTime? @map(name: "email_verified")
