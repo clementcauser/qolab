@@ -1,0 +1,8 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "qolab": "apps/qolab",
+    "qolab-e2e": "apps/qolab-e2e"
+  }
+}
