@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/qolab",
+  "sourceRoot": "apps/web",
   "projectType": "application",
   "targets": {
     "build": {
@@ -8,8 +8,8 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "root": "apps/qolab",
-        "outputPath": "dist/apps/qolab"
+        "root": "apps/web",
+        "outputPath": "dist/apps/web"
       },
       "configurations": {
         "development": {},
@@ -20,17 +20,17 @@
       "executor": "@nrwl/next:server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "qolab:build",
+        "buildTarget": "web:build",
         "dev": true,
-        "proxyConfig": "apps/qolab/proxy.conf.json"
+        "proxyConfig": "apps/web/proxy.conf.json"
       },
       "configurations": {
         "development": {
-          "buildTarget": "qolab:build:development",
+          "buildTarget": "web:build:development",
           "dev": true
         },
         "production": {
-          "buildTarget": "qolab:build:production",
+          "buildTarget": "web:build:production",
           "dev": false
         }
       }
@@ -38,14 +38,14 @@
     "export": {
       "executor": "@nrwl/next:export",
       "options": {
-        "buildTarget": "qolab:build:production"
+        "buildTarget": "web:build:production"
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/qolab"],
+      "outputs": ["coverage/apps/web"],
       "options": {
-        "jestConfig": "apps/qolab/jest.config.ts",
+        "jestConfig": "apps/web/jest.config.ts",
         "passWithNoTests": true
       }
     },
@@ -53,7 +53,7 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/qolab/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["apps/web/**/*.{ts,tsx,js,jsx}"]
       }
     }
   },
