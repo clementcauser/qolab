@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@qolab/core": ["libs/core/src/index.ts"],
       "@qolab/utils": ["libs/utils/src/index.ts"]
     }
   },
