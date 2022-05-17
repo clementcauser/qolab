@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@qolab/core": ["libs/core/src/index.ts"],
+      "@qolab/icons": ["libs/icons/src/index.ts"],
       "@qolab/utils": ["libs/utils/src/index.ts"]
     }
   },

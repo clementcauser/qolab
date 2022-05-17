@@ -4,6 +4,7 @@
   "projects": {
     "api": "apps/api",
     "core": "libs/core",
+    "icons": "libs/icons",
     "utils": "libs/utils",
     "web": "apps/web",
     "web-e2e": "apps/web-e2e"
