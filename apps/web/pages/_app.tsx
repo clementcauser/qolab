@@ -1,19 +1,16 @@
-import { NextUIProvider } from '@nextui-org/react';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import { theme } from '../theme';
+
 import './styles.css';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Welcome to qolab!</title>
+        <title>qolab - Développez vos applications solidaires</title>
       </Head>
       <main className="app">
-        <NextUIProvider theme={theme}>
-          <Component {...pageProps} />
-        </NextUIProvider>
+        <Component {...pageProps} />
       </main>
     </>
   );

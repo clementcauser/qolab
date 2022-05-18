@@ -1,7 +1,5 @@
-import { styled } from '@nextui-org/react';
 import { ReactNode } from 'react';
-
-const IconContainer = styled('svg');
+import styled from 'styled-components';
 
 const SIZES = {
   small: '16px',
@@ -16,20 +14,25 @@ export type IconProps = {
 
 type Props = {
   children: ReactNode;
+  className?: string;
 } & IconProps;
 
-const Icon = ({ color = '#000', size = 'medium', children }: Props) => {
+const Icon = ({ className, children }: Props) => {
   return (
-    <IconContainer
+    <svg
       xmlns="http://www.w3.org/2000/svg"
       tabIndex={-1}
       aria-hidden
       viewBox="0 0 24 24"
-      css={{ height: SIZES[size], width: SIZES[size], fill: color }}
+      className={className}
     >
       {children}
-    </IconContainer>
+    </svg>
   );
 };
 
-export default Icon;
+export default styled(Icon)<Props>`
+  fill: ${({ color = '#111111' }) => color};
+  height: ${({ size = 'medium' }) => SIZES[size]};
+  width: ${({ size = 'medium' }) => SIZES[size]};
+`;

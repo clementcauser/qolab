@@ -5,6 +5,8 @@
     "api": "apps/api",
     "core": "libs/core",
     "icons": "libs/icons",
+    "uikit": "libs/uikit",
+    "uikit-e2e": "apps/uikit-e2e",
     "utils": "libs/utils",
     "web": "apps/web",
     "web-e2e": "apps/web-e2e"

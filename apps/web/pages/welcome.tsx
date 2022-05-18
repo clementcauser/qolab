@@ -1,22 +1,15 @@
-import { Button, Container, styled, Text } from '@nextui-org/react';
-import Icon, { AtIcon } from '@qolab/icons';
+import { Container, Grid, styled, Text } from '@nextui-org/react';
+import { Button } from '@qolab/uikit';
+import Link from 'next/link';
 import { ReactComponent as PeopleCollaborating } from '../public/illustrations/people_collaborating.svg';
+import { Routes } from '../routes';
 
 const Main = styled('main', {
-  backgroundImage: '',
   minHeight: '100vh',
 });
 
-const Hero = styled('div', {
+const GridContainer = styled(Grid.Container, {
   position: 'relative',
-  height: '300px',
-});
-
-const IllustrationContainer = styled('div', {
-  position: 'absolute',
-  right: 0,
-  maxWidth: '60%',
-  height: '100%',
 });
 
 export default function Welcome() {
@@ -26,29 +19,28 @@ export default function Welcome() {
         <Text span weight="bold" size="$lg">
           qolab
         </Text>
-        <Hero>
+        <GridContainer>
+          <div style={{ maxWidth: '50%' }}>
+            <PeopleCollaborating />
+          </div>
           <Text
             h1
-            size="4rem"
+            size="$xl"
             weight="extrabold"
             css={{
-              color: 'transparent',
-              backgroundClip: 'text',
-              maxWidth: '40%',
-              backgroundImage:
-                'linear-gradient(112deg, $primary500, $secondary500)',
+              textGradient: '112deg, $primary500, $secondary500',
               position: 'absolute',
-              zIndex: 10,
+              left: 0,
             }}
           >
             Donnez vie à vos inspirations digitales
           </Text>
-          <IllustrationContainer>
-            <PeopleCollaborating />
-          </IllustrationContainer>
-        </Hero>
-        <AtIcon />
-        <Button>Embarquement</Button>
+        </GridContainer>
+        <Link href={Routes.HOME} passHref>
+          <a>
+            <Button>Embarquement</Button>
+          </a>
+        </Link>
       </Container>
     </Main>
   );
