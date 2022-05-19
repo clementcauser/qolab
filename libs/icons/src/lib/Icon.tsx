@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import styled from 'styled-components';
 
 const SIZES = {
-  small: '16px',
+  small: '14px',
   medium: '24px',
   large: '48px',
 };
