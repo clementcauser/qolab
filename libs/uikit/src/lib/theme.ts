@@ -73,9 +73,13 @@ export const theme = {
     gray900: '#111111',
     // white
     white: '#FFFFFF',
+    // background
     background: '#FFFFFF',
     background100: '#F7F9Fc',
     background200: '#EDF1F7',
+    // text
+    text: '#111111',
+    textAccent: '#FFFFFF',
   },
   fonts: {
     sans: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto','Oxygen','Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;",
