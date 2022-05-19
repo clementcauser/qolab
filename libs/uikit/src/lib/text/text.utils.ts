@@ -1,9 +1,9 @@
 import { css } from 'styled-components';
 import { theme } from '../theme';
-import { TextSize, TextStatus } from './types';
+import { TextVariant, TextStatus } from './types';
 
-export const getTextPropertiesBySize = (size?: TextSize) => {
-  switch (size) {
+export const getTextPropertiesByVariant = (variant?: TextVariant) => {
+  switch (variant) {
     case 'h1':
       return css`
         letter-spacing: ${theme.letterSpacings.tighter};
@@ -45,6 +45,14 @@ export const getTextPropertiesBySize = (size?: TextSize) => {
         letter-spacing: ${theme.letterSpacings.tight};
         font-size: ${theme.fontSizes.xs};
         font-weight: ${theme.fontWeights.semibold};
+      `;
+
+    case 'link':
+      return css`
+        cursor: pointer;
+        font-size: ${theme.fontSizes.base};
+        color: ${theme.colors.link};
+        text-decoration: none;
       `;
 
     default:

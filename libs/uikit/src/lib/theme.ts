@@ -80,6 +80,7 @@ export const theme = {
     // text
     text: '#111111',
     textAccent: '#FFFFFF',
+    link: '#0599FC',
   },
   fonts: {
     sans: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto','Oxygen','Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;",

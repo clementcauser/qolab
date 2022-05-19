@@ -10,15 +10,18 @@ const BasicTemplate: Story<TextProps> = (args) => (
   <Text {...args}>Almost before we knew it, we had left the ground.</Text>
 );
 
-const SizesTemplate: Story<TextProps> = () => (
+const VariantsTemplate: Story<TextProps> = () => (
   <>
-    <Text size="h1">Almost before we knew it, we had left the ground.</Text>
-    <Text size="h2">Almost before we knew it, we had left the ground.</Text>
-    <Text size="h3">Almost before we knew it, we had left the ground.</Text>
-    <Text size="h4">Almost before we knew it, we had left the ground.</Text>
-    <Text size="h5">Almost before we knew it, we had left the ground.</Text>
-    <Text size="h6">Almost before we knew it, we had left the ground.</Text>
-    <Text size="p">Almost before we knew it, we had left the ground.</Text>
+    <Text variant="h1">Almost before we knew it, we had left the ground.</Text>
+    <Text variant="h2">Almost before we knew it, we had left the ground.</Text>
+    <Text variant="h3">Almost before we knew it, we had left the ground.</Text>
+    <Text variant="h4">Almost before we knew it, we had left the ground.</Text>
+    <Text variant="h5">Almost before we knew it, we had left the ground.</Text>
+    <Text variant="h6">Almost before we knew it, we had left the ground.</Text>
+    <Text variant="p">Almost before we knew it, we had left the ground.</Text>
+    <Text variant="link">
+      Almost before we knew it, we had left the ground.
+    </Text>
   </>
 );
 
@@ -45,5 +48,5 @@ const StatusTemplate: Story<TextProps> = () => (
 );
 
 export const Basic = BasicTemplate.bind({});
-export const Sizes = SizesTemplate.bind({});
+export const Variants = VariantsTemplate.bind({});
 export const Status = StatusTemplate.bind({});
