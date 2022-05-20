@@ -73,6 +73,8 @@ export const theme = {
     gray900: '#111111',
     // white
     white: '#FFFFFF',
+    // black
+    black: '#000000',
     // background
     background: '#FFFFFF',
     background100: '#F7F9Fc',
@@ -126,7 +128,7 @@ export const theme = {
     sm: '9px',
     md: '12px',
     base: '14px',
-    lg: '14px', // preferred value by NextUI components
+    lg: '14px',
     xl: '18px',
     squared: '33%',
     rounded: '50%',
