@@ -10,3 +10,14 @@ export type TextVariant =
   | 'p'
   | 'link';
 export type TextStatus = ElementStatus;
+export type TextWeight =
+  | 'hairline'
+  | 'thin'
+  | 'light'
+  | 'normal'
+  | 'medium'
+  | 'semibold'
+  | 'bold'
+  | 'extrabold'
+  | 'black';
+export type TextAlign = 'left' | 'center' | 'right';
