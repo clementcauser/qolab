@@ -27,7 +27,7 @@ export const Card = styled(
   )
 )`
   margin: 0px;
-
+  background-color: ${theme.colors.background};
   border-radius: ${theme.borderRadius.lg};
   position: relative;
   display: flex;
