@@ -16,7 +16,7 @@ export const Text = styled.p<TextProps>`
   ${({ status }) => getTextColorByStatus(status)}
   ${({ variant }) => getTextPropertiesByVariant(variant)}
   
-  margin: inherit;
+  margin: 0;
   text-transform: none;
 
   text-rendering: geometricprecision;
