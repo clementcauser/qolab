@@ -5,7 +5,7 @@ export type ContainerProps = {
   fluid?: boolean;
 };
 
-export const Container = styled.main<ContainerProps>`
+export const Container = styled.div<ContainerProps>`
   width: 100%;
   margin-right: auto;
   margin-left: auto;
