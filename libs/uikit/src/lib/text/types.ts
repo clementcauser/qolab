@@ -9,7 +9,7 @@ export type TextVariant =
   | 'h6'
   | 'p'
   | 'link';
-export type TextStatus = ElementStatus;
+export type TextStatus = ElementStatus | 'accent' | 'base';
 export type TextWeight =
   | 'hairline'
   | 'thin'

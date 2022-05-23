@@ -97,7 +97,13 @@ export const getTextColorByStatus = (status?: TextStatus) => {
         color: ${theme.colors.danger500};
       `;
 
+    case 'accent':
+      return css`
+        color: ${theme.colors.textAccent};
+      `;
+
     default:
+    case 'base':
       return css`
         color: ${theme.colors.text};
       `;
