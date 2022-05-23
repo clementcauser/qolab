@@ -14,8 +14,9 @@ jobs:
         npx nx-cloud record -- npx nx workspace-lint
         npx nx-cloud record -- npx nx format:check
       parallel-commands-on-agents: |
-        npx nx affected --target=lint --all --parallel=3
-        npx nx affected --target=test --all --parallel=3 --ci --code-coverage
+        npx nx affected --target=lint --projects=web,uikit,icons --parallel=3
+        npx nx affected --target=e2e --projects=web-e2e --parallel=3
+        npx nx affected --target=test --projects=web,uikit,icons --parallel=3 --ci --code-coverage
         npx nx affected --target=build --all --parallel=3
 
   agents:
