@@ -1,30 +1,26 @@
-/* eslint-disable react/display-name */
 import { ReactElement } from 'react';
-import Document, {
-  Html,
-  Head,
-  Main,
-  NextScript,
-  DocumentContext,
-} from 'next/document';
-import { CssBaseline } from '@nextui-org/react';
+import Document, { Html, Head, Main, NextScript } from 'next/document';
+import { ServerStyleSheet } from 'styled-components';
 
 export default class CustomDocument extends Document<{
   styleTags: ReactElement[];
 }> {
-  static async getInitialProps(ctx: DocumentContext) {
-    const initialProps = await Document.getInitialProps(ctx);
+  static getInitialProps({ renderPage }) {
+    const sheet = new ServerStyleSheet();
 
-    return {
-      ...initialProps,
-      styles: [<>{initialProps.styles}</>],
-    };
+    const page = renderPage(
+      (App) => (props) => sheet.collectStyles(<App {...props} />)
+    );
+
+    const styleTags = sheet.getStyleElement();
+
+    return { ...page, styleTags };
   }
 
   render() {
     return (
-      <Html lang="fr">
-        <Head>{CssBaseline.flush()}</Head>
+      <Html>
+        <Head>{this.props.styleTags}</Head>
         <body>
           <Main />
           <NextScript />

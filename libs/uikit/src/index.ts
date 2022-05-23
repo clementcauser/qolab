@@ -10,6 +10,7 @@ import TextInput from './lib/text-input/text-input';
 import TextInputActionButton from './lib/text-input/text-input-clearable-button';
 import TextInputLabel from './lib/text-input/text-input-label';
 import { theme } from './lib/theme';
+import { GlobalStyle } from './lib/globalStyle';
 
 export {
   Button,
@@ -24,4 +25,5 @@ export {
   TextInput,
   TextInputActionButton,
   TextInputLabel,
+  GlobalStyle,
 };
