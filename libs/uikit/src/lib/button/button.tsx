@@ -3,7 +3,7 @@ import { theme } from '../theme';
 import { getButtonSizeProperties, getButtonStatus } from './button.utils';
 import { ButtonSize, ButtonStatus } from './types';
 import Icon from '@qolab/icons';
-import { ReactNode, ComponentPropsWithoutRef } from 'react';
+import { ReactNode, ComponentPropsWithoutRef, forwardRef } from 'react';
 
 export type ButtonProps = {
   size?: ButtonSize;
@@ -17,12 +17,14 @@ export type ButtonProps = {
 } & ComponentPropsWithoutRef<'button'>;
 
 export const Button = styled(
-  ({ iconLeft, children, iconRight, ...props }: ButtonProps) => (
-    <button type="button" {...props}>
-      {iconLeft}
-      {children && <span>{children}</span>}
-      {iconRight}
-    </button>
+  forwardRef<HTMLButtonElement, ButtonProps>(
+    ({ iconLeft, children, iconRight, className, ...props }, ref) => (
+      <button type="button" {...props} ref={ref} className={className}>
+        {iconLeft}
+        {children && <span>{children}</span>}
+        {iconRight}
+      </button>
+    )
   )
 )`
   display: flex;
