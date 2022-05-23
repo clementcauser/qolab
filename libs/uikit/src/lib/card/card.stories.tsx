@@ -1,0 +1,38 @@
+import { Story, Meta } from '@storybook/react';
+import Button from '../button/button';
+import Text from '../text/text';
+import { CardProps, Card } from './card';
+
+export default {
+  component: Card,
+  title: 'Card',
+} as Meta;
+
+const BasicTemplate: Story<CardProps> = (args) => (
+  <Card {...args}>Click me</Card>
+);
+
+const WithHeaderAndFooterTemplate: Story<CardProps> = (args) => (
+  <div style={{ maxWidth: 400 }}>
+    <Card
+      {...args}
+      title="Title"
+      footer={<Button onClick={console.log}>Click me</Button>}
+    >
+      <div>
+        <Text>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum
+        </Text>
+      </div>
+    </Card>
+  </div>
+);
+
+export const Basic = BasicTemplate.bind({});
+export const WithHeaderAndFooter = WithHeaderAndFooterTemplate.bind({});
