@@ -32,11 +32,18 @@ input SignupInput {
 type UserModel {
   _id: String!
   email: String!
+  roles: [UserRole!]!
   username: String
 }
 
 type UserModelWithoutPassword {
   _id: String!
   email: String!
+  roles: [UserRole!]!
   username: String
+}
+
+enum UserRole {
+  ADMIN
+  REGULAR
 }

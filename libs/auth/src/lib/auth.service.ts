@@ -1,6 +1,6 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { UserModel, UsersService } from '@qolab/users';
+import { UserModel, UserRole, UsersService } from '@qolab/users';
 import * as bcrypt from 'bcrypt';
 import { SignupInput } from './dto';
 import { LoginInput } from './dto/login.input';
@@ -26,6 +26,7 @@ export class AuthService {
         email: user.email,
         _id: user._id,
         username: user.username,
+        roles: [UserRole.REGULAR],
       };
 
       return result;
@@ -43,6 +44,7 @@ export class AuthService {
       access_token: this.jwtService.sign({
         email: user.email,
         sub: user._id,
+        roles: user.roles,
       }),
       user,
     };

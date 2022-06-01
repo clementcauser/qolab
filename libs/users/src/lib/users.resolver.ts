@@ -1,5 +1,5 @@
 import { Args, Query, Resolver } from '@nestjs/graphql';
-import { UserModel } from './user.model';
+import { UserModel } from './models/user.model';
 import { UsersService } from './users.service';
 
 @Resolver(() => UserModel)
