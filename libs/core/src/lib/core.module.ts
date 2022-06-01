@@ -1,10 +1,12 @@
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { configuration } from './config';
-import { validationSchema } from './validation';
 import { GraphQLModule } from '@nestjs/graphql';
-import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
+import { MongooseModule } from '@nestjs/mongoose';
+import { join } from 'path';
+import { configuration } from './config';
 import { CoreResolver } from './core.resolver';
+import { validationSchema } from './validation';
 
 @Module({
   imports: [
@@ -15,8 +17,13 @@ import { CoreResolver } from './core.resolver';
     }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
-      autoSchemaFile: true,
+      autoSchemaFile: join(process.cwd(), 'apps/api/src/schema.gql'),
+      sortSchema: true,
       playground: process.env.NODE_ENV === 'development',
+    }),
+    MongooseModule.forRoot(configuration().mongoDbUrl, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
     }),
   ],
   providers: [CoreResolver],
