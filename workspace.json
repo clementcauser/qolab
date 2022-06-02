@@ -3,10 +3,12 @@
   "version": 2,
   "projects": {
     "api": "apps/api",
+    "auth": "libs/auth",
     "constants": "libs/constants",
     "core": "libs/core",
     "icons": "libs/icons",
     "uikit": "libs/uikit",
+    "users": "libs/users",
     "utils": "libs/utils",
     "web": "apps/web",
     "web-e2e": "apps/web-e2e"
